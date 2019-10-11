@@ -25,7 +25,7 @@ public class HomeController {
         model.addAttribute("departments", departmentRepository.findAll());
         model.addAttribute("employees", employeeRepository.findAll());
 
-        return "index2";
+        return "index";
     }
 
 
