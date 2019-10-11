@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+div th:replace="base :: navlinks"></div>
+
+
+
+<input type="hidden" th:field="*{employeeId}">
+
+Name: <input type="text" th:field="*{employeeName}"><br />
+<span th:if="${#fields.hasErrors('employeeName')}" th:errors="*{employeeName}"></span><br />
+
+Position: <input type="text" th:field="*{employeePosition}"><br />
+<span th:if="${#fields.hasErrors('employeePosition')}" th:errors="*{employeePosition}"></span><br />
+
+
+<select name="department" th:field="*{department}">
+    <option th:each="department : ${departments}"
+            th:value="${department.departmentID}"
+            th:text="${department.departmentName}"></option>
+</select>
+<input type="submit" value="Submit">
+
+</body>
+</html>
