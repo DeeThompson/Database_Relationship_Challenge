@@ -25,9 +25,9 @@ public class HomeController {
         model.addAttribute("departments", departmentRepository.findAll());
         model.addAttribute("employees", employeeRepository.findAll());
 
-        return "index";
+        return "index2";
     }
-//==========================Department=========================//
+
 
     @GetMapping("/adddepartment")
     public String departmentForm(Model model){
@@ -35,7 +35,7 @@ public class HomeController {
         return "departmentform";
     }
 
-    @PostMapping("/processdepartment")
+    @PostMapping("/process_department")
     public String processDepartmentForm(@Valid Department department, BindingResult result){
         if (result.hasErrors()){
             return "departmentform";
@@ -51,9 +51,6 @@ public class HomeController {
 
         return "departmentlist";
     }
-
-
-    //========================Employee===============================//
 
     @GetMapping("/addemployee")
     public String employeeForm(Model model){
@@ -115,4 +112,6 @@ public class HomeController {
         employeeRepository.deleteById(id);
         return "index";
     }
-}
+
+    }
+

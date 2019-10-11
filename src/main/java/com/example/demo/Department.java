@@ -1,43 +1,37 @@
 package com.example.demo;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Set;
 
 @Entity
 public class Department {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long departmentId;
+    private long departmentID;
 
-    private String name;
-    private String description;
+    private String departmentName;
 
-    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER)
+    //private ArrayList<Employee> employee;
+
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public Set<Employee> employees;
 
-    public long getDepartmentId() {
-        return departmentId;
+    public long getDepartmentID() {
+        return departmentID;
     }
 
-    public void setDepartmentId(long departmentId) {
-        this.departmentId = departmentId;
+    public void setDepartmentID(long departmentID) {
+        this.departmentID = departmentID;
     }
 
-    public String getName() {
-        return name;
+    public String getDepartmentName() {
+        return departmentName;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
     }
 
     public Set<Employee> getEmployees() {
@@ -46,6 +40,9 @@ public class Department {
 
     public void setEmployees(Set<Employee> employees) {
         this.employees = employees;
+    }
+
+    public Department() {
     }
 }
 
