@@ -24,9 +24,9 @@
 
 
     <select name="department" th:field="*{department}">
-        <option th:each="department : ${departments}"
-                th:value="${department.departmentID}"
-                th:text="${department.departmentName}"></option>
+        <option th:each="dep : ${departments}"
+                th:value="${dep.departmentID}"
+                th:text="${dep.departmentName}"></option>
     </select>
     <input type="submit" value="Submit">
 </form>

@@ -12,7 +12,7 @@ public class Employee {
     private String employeeName;
     private String employeePosition;
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.LAZY)
     private Department department;
 
     public long getEmployeeID() {
